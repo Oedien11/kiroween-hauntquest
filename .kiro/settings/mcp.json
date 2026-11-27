@@ -1,0 +1,1 @@
+{"mcpServers":{"_comment":"No MCP servers are configured for HauntQuest v1. The app is a static, dependency-free web page and needs no external tools at runtime. If a future version adds live data (e.g. a price feed or a bounty-board fetch), register the server here and document it in .kiro/specs/hauntquest/design.md."}}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HauntQuest — Daily Crypto Quest Tracker</title>
+<meta name="description" content="HauntQuest tracks your daily free crypto quests — airdrops, mints, check-ins and bounties — with deadlines, streaks and XP. Built for Kiroween 2026 (Costume Contest).">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-ghost" aria-hidden="true">👻</span>
+    <div>
+      <h1>HauntQuest</h1>
+      <p class="tagline">Daily crypto quest tracker — no quest left haunting you.</p>
+    </div>
+  </div>
+  <div class="header-next" id="nextDeadline" aria-live="polite"></div>
+</header>
+
+<main>
+  <section class="stats" id="stats" aria-label="Your progress"></section>
+
+  <section class="controls" aria-label="Filters and actions">
+    <div class="filters">
+      <input type="search" id="searchInput" placeholder="Search quests…" aria-label="Search quests">
+      <select id="statusFilter" aria-label="Filter by status">
+        <option value="all">All statuses</option>
+        <option value="todo">To do</option>
+        <option value="doing">Doing</option>
+        <option value="done">Done</option>
+        <option value="skipped">Skipped</option>
+      </select>
+      <select id="chainFilter" aria-label="Filter by chain">
+        <option value="all">All chains</option>
+        <option>BSC</option><option>Solana</option><option>Ethereum</option>
+        <option>Base</option><option>TON</option><option>Bitcoin</option><option>Any</option>
+      </select>
+      <select id="typeFilter" aria-label="Filter by type">
+        <option value="all">All types</option>
+        <option>airdrop</option><option>mint</option><option>quest</option>
+        <option>bounty</option><option>check-in</option><option>claim</option>
+      </select>
+      <select id="sortSelect" aria-label="Sort quests">
+        <option value="deadline">Sort: nearest deadline</option>
+        <option value="xp">Sort: most XP</option>
+        <option value="title">Sort: A–Z</option>
+      </select>
+    </div>
+    <div class="actions">
+      <button id="addQuestBtn" class="btn primary">+ Add quest</button>
+      <button id="exportBtn" class="btn">Export JSON</button>
+      <button id="importBtn" class="btn">Import JSON</button>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+      <button id="resetBtn" class="btn danger">Reset to seeds</button>
+    </div>
+  </section>
+
+  <section aria-label="Quest list">
+    <ul class="quest-list" id="questList"></ul>
+    <p class="empty" id="emptyState" hidden>No quests match these filters. Add one — the graveyard is hungry. 🎃</p>
+  </section>
+</main>
+
+<dialog id="questDialog">
+  <form id="questForm" method="dialog">
+    <h2 id="dialogTitle">Add quest</h2>
+    <p class="form-error" id="formError" hidden></p>
+    <label>Title *
+      <input name="title" required maxlength="120" placeholder="e.g. Kaisar daily check-in">
+    </label>
+    <label>Project
+      <input name="project" maxlength="80" placeholder="e.g. Kaisar">
+    </label>
+    <div class="form-row">
+      <label>Chain
+        <select name="chain">
+          <option>BSC</option><option>Solana</option><option>Ethereum</option>
+          <option>Base</option><option>TON</option><option>Bitcoin</option>
+          <option selected>Any</option>
+        </select>
+      </label>
+      <label>Type
+        <select name="type">
+          <option>quest</option><option>check-in</option><option>claim</option>
+          <option>airdrop</option><option>mint</option><option>bounty</option>
+        </select>
+      </label>
+      <label>XP
+        <input name="xp" type="number" min="0" max="100000" placeholder="auto by type">
+      </label>
+    </div>
+    <label>Reward
+      <input name="reward" maxlength="120" placeholder="e.g. +150 PXIO">
+    </label>
+    <label>Deadline
+      <input name="deadline" type="datetime-local">
+    </label>
+    <label>Link
+      <input name="url" type="url" placeholder="https://…">
+    </label>
+    <label>Notes
+      <textarea name="notes" rows="2" maxlength="500" placeholder="Anything to remember…"></textarea>
+    </label>
+    <label class="check">Daily recurring
+      <input name="recurring" type="checkbox">
+      <span>Reappears every morning after completion</span>
+    </label>
+    <div class="dialog-actions">
+      <button type="button" class="btn" id="cancelDialogBtn">Cancel</button>
+      <button type="submit" class="btn primary">Save quest</button>
+    </div>
+  </form>
+</dialog>
+
+<footer>
+  <p>HauntQuest — built for <a href="https://kiroween.devpost.com">Kiroween 2026</a> (Costume Contest).
+  Your quests live only in this browser (localStorage). No accounts, no tracking, no gas. 🎃</p>
+  <p class="foot-note">Free-only discipline: this tracker never asks you to pay, deposit, or connect a wallet.</p>
+</footer>
+
+<script type="module" src="src/app.js"></script>
+</body>
+</html>

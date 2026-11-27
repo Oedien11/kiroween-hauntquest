@@ -1,0 +1,1 @@
+{"description":"Daily crypto quest tracker — Kiroween 2026 (Costume Contest)","license":"MIT","name":"hauntquest","scripts":{"serve":"python3 -m http.server 8000","test":"node --test tests/logic.test.mjs"},"type":"module","version":"1.0.0"}

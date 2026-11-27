@@ -1,0 +1,5 @@
+# HauntQuest .gitignore — NOTE: .kiro is NEVER ignored (Kiroween rule).
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
