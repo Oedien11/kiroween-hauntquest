@@ -47,3 +47,22 @@ browser: Pages, video, Devpost).
 - [ ] 16. Optional bonus prizes: Social Blitz post (`#KiroweenHackathon26`
       first in the post) and/or a public blog post about Kiro + this
       project (top 100 blog submissions get 2,000 bonus credits).
+
+## Proposed for the first real Kiro session (see KIRO-ON-LAPTOP.md)
+
+- [ ] 17. **Due-today filter (run through real Kiro, IDE or CLI).**
+      Grounded in Requirement 3 (finding quests) + Requirement 4
+      (deadlines): the app has status/chain/type/text filters and an
+      overdue count, but no way to see only quests due today. (1) Run
+      `npm test` (14 tests) and confirm they pass. (2) Add a
+      `dueToday(quests)` helper in `src/logic.js` — quests with a
+      deadline on today's local date, excluding done/skipped — wire a
+      "Due today" chip into the filter row (`index.html` / `src/app.js`),
+      and add at least one unit test in `tests/logic.test.mjs`.
+      (3) Re-run `npm test` + `node --check` on both JS modules.
+      (4) Tick tasks 11, 12 and 17 here (11: verify
+      https://oedien11.github.io/kiroween-hauntquest/ loads; 12: this
+      session is the real Kiro run). (5) Update `KIRO-USAGE.md` with
+      what Kiro did, when, and the test output. Proposed 27 Nov 2026;
+      NOT done — no Kiro session has run yet (auth blocker, see
+      `KIRO-ON-LAPTOP.md`).

@@ -48,10 +48,11 @@ honest account, and `.kiro/` for the artefacts:
 - `.kiro/hooks/` — run tests on save
 - `.kiro/settings/` — MCP config (none needed for v1)
 
-**Important:** Kiro IDE cannot run on the Linux VM this was built on, so
-no Kiro app session executed the build. Before submitting, open the repo
-in Kiro on your own machine and run at least one spec task through it —
-see `KIRO-USAGE.md`.
+**Important:** no Kiro session has executed this build yet — Kiro CLI
+3.6.2 installs and runs on the build VM, but every Kiro route needs
+your own signed-in Kiro account (the agent must not create one). Before
+submitting, open the repo in Kiro on your own machine and run Task 17
+through it — exact 5-minute steps in `KIRO-ON-LAPTOP.md`.
 
 ## Kiroween submission checklist (for the builder)
 
